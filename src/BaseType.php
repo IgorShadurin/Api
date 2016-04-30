@@ -68,7 +68,7 @@ abstract class BaseType
         foreach (static::$map as $key => $item) {
             $property = lcfirst(self::toCamelCase($key));
             if (!is_null($this->$property)) {
-                $output[$key] = $item === true ? $this->$property : $this->$property->toJson(true);
+                $output[$key] = $item === true ? $this->$property : is_object($this->$property)?$this->$property->toJson(true):$this->$property;
             }
         }
 
