@@ -250,7 +250,7 @@ class BotApi
      *
      * @throws \TelegramBot\Api\HttpException
      */
-    public static function curlValidate($curl, $result)
+    public static function curlValidate($curl, $result = 'no error description')
     {
         if (($httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE))
             && !in_array($httpCode, [self::DEFAULT_STATUS_CODE, self::NOT_MODIFIED_STATUS_CODE])
